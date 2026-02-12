@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vm-curator - The Desktop VM Manager Built Right</title>
+    <meta name="description" content="A modern VM manager for Linux desktops that excels at GPU passthrough. Direct QEMU control, single/multi-GPU modes, streamlined workflow.">
+    <meta name="keywords" content="vm-curator, GPU passthrough, QEMU TUI, KVM manager, single GPU passthrough, Looking Glass, desktop virtualization, Linux VMs">
+    <meta name="author" content="Mark Roboff">
+    
+    <!-- OpenGraph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vm-curator.org">
+    <meta property="og:title" content="vm-curator - The Desktop VM Manager Built Right">
+    <meta property="og:description" content="GPU passthrough done right. Single GPU mode, multi-GPU with Looking Glass, direct QEMU control. Modern desktop virtualization.">
+    <meta property="og:image" content="https://vm-curator.org/images/vm-curator-main.png">
+    <meta property="og:site_name" content="vm-curator">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vm-curator.org">
+    <meta property="twitter:title" content="vm-curator - The Desktop VM Manager Built Right">
+    <meta property="twitter:description" content="GPU passthrough done right. Single GPU mode, multi-GPU with Looking Glass, direct QEMU control. Modern desktop virtualization.">
+    <meta property="twitter:image" content="https://vm-curator.org/images/vm-curator-main.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <span class="brand-text">vm-curator</span>
+            </div>
+            <div class="nav-links">
+                <a href="#gpu" class="nav-link">GPU Passthrough</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#screenshots" class="nav-link">Screenshots</a>
+                <a href="#install" class="nav-link">Install</a>
+                <a href="https://github.com/mroboff/vm-curator" class="nav-link" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    The Desktop VM Manager<br>
+                    <span class="hero-highlight">Built Right</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <strong>GPU Passthrough</strong> that actually works. <strong>Single GPU mode</strong> with display manager magic. 
+                    <strong>Direct QEMU control</strong> without unnecessary complexity. Built for Linux power users who demand excellence.
+                </p>
+                <div class="hero-features">
+                    <div class="hero-feature">⚡ Single & Multi-GPU Passthrough</div>
+                    <div class="hero-feature">🎯 Direct QEMU Control</div>
+                    <div class="hero-feature">🚀 Modern Desktop Virtualization</div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#install" class="btn btn-primary">Get GPU Gaming Now</a>
+                    <a href="#gpu" class="btn btn-secondary">See GPU Features</a>
+                </div>
+            </div>
+            <div class="hero-screenshot">
+                <div class="screenshot-window">
+                    <div class="screenshot-header">
+                        <span class="screenshot-title">vm-curator - Main Interface</span>
+                    </div>
+                    <img src="images/vm-curator-main.png" alt="vm-curator main interface showing VM library with 21 VMs organized by OS family" class="screenshot-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Positioning Section -->
+    <section class="positioning">
+        <div class="container">
+            <h2 class="section-title">Modern Desktop Virtualization</h2>
+            <div class="positioning-grid">
+                <div class="positioning-card">
+                    <div class="positioning-icon">🎯</div>
+                    <h3>GPU Passthrough Focus</h3>
+                    <p>Purpose-built for GPU passthrough with single GPU mode, multi-GPU support, and automatic display manager handling.</p>
+                </div>
+                <div class="positioning-card">
+                    <div class="positioning-icon">⚡</div>
+                    <h3>Direct QEMU Control</h3>
+                    <p>No abstraction layers. Direct QEMU management with full control over your VM configuration and performance.</p>
+                </div>
+                <div class="positioning-card">
+                    <div class="positioning-icon">🖥️</div>
+                    <h3>Desktop-First Design</h3>
+                    <p>Optimized for desktop and workstation use cases. Clean TUI, vim-style navigation, built for power users.</p>
+                </div>
+            </div>
+            <div class="positioning-solution">
+                <h3>vm-curator is focused</h3>
+                <p>A <strong>desktop/workstation VM manager</strong> built by someone who actually uses VMs daily. Designed as a modern alternative for desktop virtualization. Runs in <strong>QEMU/KVM user mode</strong> (non-root), with GPU passthrough that actually works.</p>
+                <p class="positioning-note">Desktop only. Not Proxmox. For your workstation, by someone who gets it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GPU Passthrough Section -->
+    <section id="gpu" class="gpu-section">
+        <div class="container">
+            <h2 class="section-title">GPU Passthrough: The Killer Feature</h2>
+            <p class="gpu-intro">Two modes. One goal: <strong>Native GPU performance in VMs</strong>. No compromises.</p>
+            
+            <div class="gpu-modes">
+                <div class="gpu-mode">
+                    <div class="gpu-mode-header">
+                        <div class="gpu-mode-icon">🎯</div>
+                        <h3>Single GPU Passthrough</h3>
+                        <div class="gpu-mode-badge">The Sweet Spot</div>
+                    </div>
+                    <div class="gpu-mode-content">
+                        <div class="gpu-mode-text">
+                            <p><strong>The magic:</strong> Automatically disconnects your GPU from Linux display manager (SDDM, GDM, etc.), passes it to the VM for native performance, then reverses everything on VM shutdown.</p>
+                            <div class="gpu-features">
+                                <div class="gpu-feature">✅ Display goes directly to physical monitors</div>
+                                <div class="gpu-feature">✅ No Looking Glass needed</div>
+                                <div class="gpu-feature">✅ Native GPU performance</div>
+                                <div class="gpu-feature">✅ Automatic display manager restart</div>
+                                <div class="gpu-feature">✅ Script generation and validation</div>
+                            </div>
+                            <p class="gpu-perfect">Perfect for: Gaming VMs, 3D workloads, when you only have one GPU</p>
+                        </div>
+                        <div class="gpu-mode-screenshot">
+                            <img src="images/vm-curator-single-gpu.png" alt="Single GPU passthrough setup showing RTX 4090 configuration" class="gpu-screenshot">
+                            <p class="screenshot-caption">RTX 4090 single GPU setup with SDDM detection</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gpu-mode">
+                    <div class="gpu-mode-header">
+                        <div class="gpu-mode-icon">🖥️</div>
+                        <h3>Multi-GPU Passthrough</h3>
+                        <div class="gpu-mode-badge">Best of Both Worlds</div>
+                    </div>
+                    <div class="gpu-mode-content">
+                        <div class="gpu-mode-text">
+                            <p><strong>The setup:</strong> Dedicated GPU for VM, host keeps its GPU. Uses Looking Glass for viewing VM display while maintaining host graphics.</p>
+                            <div class="gpu-features">
+                                <div class="gpu-feature">✅ Host graphics always available</div>
+                                <div class="gpu-feature">✅ Looking Glass integration</div>
+                                <div class="gpu-feature">✅ Full VFIO device passthrough</div>
+                                <div class="gpu-feature">✅ IOMMU group management</div>
+                                <div class="gpu-feature">✅ Zero host disruption</div>
+                            </div>
+                            <p class="gpu-perfect">Perfect for: Multi-monitor setups, when you have multiple GPUs</p>
+                        </div>
+                        <div class="gpu-mode-screenshot">
+                            <img src="images/vm-curator-pci-passthrough.png" alt="PCI device passthrough dialog showing IOMMU groups" class="gpu-screenshot">
+                            <p class="screenshot-caption">PCI passthrough with full IOMMU group visualization</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Everything Else You Need</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🗂️</div>
+                    <h3>120+ OS Profiles</h3>
+                    <p>Pre-configured settings for everything from DOS to modern Linux distributions. No more guessing QEMU flags.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔌</div>
+                    <h3>USB Passthrough</h3>
+                    <p>Device enumeration and persistent configuration. Your gaming controllers, webcams, and USB devices just work.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Network Backends</h3>
+                    <p>Bridge, NAT via SLIRP, NAT via passt. Choose the right network mode for your use case.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📁</div>
+                    <h3>Shared Folders</h3>
+                    <p>virtio-9p integration for seamless host directory sharing. No more USB stick transfers.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👤</div>
+                    <h3>Headless Support</h3>
+                    <p>display=none with process monitoring. Perfect for servers and background VMs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>Snapshot Management</h3>
+                    <p>Create, restore, and delete qcow2 snapshots with progress feedback. Time travel for your VMs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⌨️</div>
+                    <h3>Vim-Style Navigation</h3>
+                    <p>Keyboard shortcuts that make sense. Mouse support when you want it. Built for efficiency.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Launch Script Editor</h3>
+                    <p>Syntax-aware display of generated QEMU commands. See exactly what's running, tweak as needed.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🚫</div>
+                    <h3>No libvirt Dependency</h3>
+                    <p>Direct QEMU control means no XML wrestling, no daemon complexity, no permission nightmares.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots Gallery -->
+    <section id="screenshots" class="screenshots-gallery">
+        <div class="container">
+            <h2 class="section-title">See It In Action</h2>
+            <div class="gallery-container">
+                <div class="gallery-main">
+                    <img id="gallery-main-image" src="images/vm-curator-main.png" alt="Main screenshot" class="gallery-main-image">
+                    <p id="gallery-caption" class="gallery-caption">Main TUI with VM library showing 21 VMs organized by OS family</p>
+                </div>
+                <div class="gallery-thumbnails">
+                    <div class="gallery-thumbnail active" onclick="showImage('images/vm-curator-main.png', 'Main TUI with VM library showing 21 VMs organized by OS family')">
+                        <img src="images/vm-curator-main.png" alt="Main interface">
+                        <span>Main Interface</span>
+                    </div>
+                    <div class="gallery-thumbnail" onclick="showImage('images/vm-curator-single-gpu.png', 'Single GPU passthrough setup with RTX 4090 configuration and SDDM detection')">
+                        <img src="images/vm-curator-single-gpu.png" alt="Single GPU setup">
+                        <span>Single GPU</span>
+                    </div>
+                    <div class="gallery-thumbnail" onclick="showImage('images/vm-curator-pci-passthrough.png', 'PCI device passthrough dialog showing IOMMU groups and device selection')">
+                        <img src="images/vm-curator-pci-passthrough.png" alt="PCI passthrough">
+                        <span>PCI Passthrough</span>
+                    </div>
+                    <div class="gallery-thumbnail" onclick="showImage('images/vm-curator-usb-passthrough.png', 'USB device passthrough with device enumeration and persistent configuration')">
+                        <img src="images/vm-curator-usb-passthrough.png" alt="USB passthrough">
+                        <span>USB Devices</span>
+                    </div>
+                    <div class="gallery-thumbnail" onclick="showImage('images/vm-curator-settings.png', 'Settings screen with GPU passthrough configuration options')">
+                        <img src="images/vm-curator-settings.png" alt="Settings">
+                        <span>Settings</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="install" class="install">
+        <div class="container">
+            <h2 class="section-title">Get Started</h2>
+            <div class="install-content">
+                <div class="install-quick">
+                    <h3>Quick Install</h3>
+                    <div class="code-block">
+                        <pre><code>cargo install vm-curator</code></pre>
+                        <button class="copy-btn" data-clipboard-text="cargo install vm-curator">Copy</button>
+                    </div>
+                    <p class="install-note">Requires Rust 1.70+ and QEMU installed</p>
+                </div>
+                
+                <div class="install-methods">
+                    <div class="install-method">
+                        <h3>Alternative Methods</h3>
+                        <div class="install-options">
+                            <div class="install-option">
+                                <h4>From Source</h4>
+                                <div class="code-block">
+                                    <pre><code>git clone https://github.com/mroboff/vm-curator.git
+cd vm-curator
+cargo build --release</code></pre>
+                                    <button class="copy-btn" data-clipboard-text="git clone https://github.com/mroboff/vm-curator.git
+cd vm-curator
+cargo build --release">Copy</button>
+                                </div>
+                            </div>
+                            
+                            <div class="install-option">
+                                <h4>Package Managers</h4>
+                                <ul class="package-list">
+                                    <li><strong>Arch Linux:</strong> Available on AUR</li>
+                                    <li><strong>Binary releases:</strong> DEB, RPM, AppImage on <a href="https://github.com/mroboff/vm-curator/releases" target="_blank">GitHub Releases</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="install-prereqs">
+                        <h3>Prerequisites</h3>
+                        <div class="prereq-grid">
+                            <div class="prereq-item">
+                                <strong>QEMU</strong>
+                                <span>qemu-system-* binaries</span>
+                            </div>
+                            <div class="prereq-item">
+                                <strong>libudev</strong>
+                                <span>libudev-dev (Debian/Ubuntu) or libudev (Arch/Fedora)</span>
+                            </div>
+                            <div class="prereq-item">
+                                <strong>Rust</strong>
+                                <span>1.70+ (for building from source)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="install-quickstart">
+                    <h3>First Run</h3>
+                    <div class="quickstart-steps">
+                        <div class="quickstart-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <strong>Run vm-curator</strong>
+                                <p>Configure your VM library location</p>
+                            </div>
+                        </div>
+                        <div class="quickstart-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <strong>Press 'c' to create</strong>
+                                <p>Launch the guided VM creation wizard</p>
+                            </div>
+                        </div>
+                        <div class="quickstart-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <strong>Set up GPU passthrough</strong>
+                                <p>Configure single or multi-GPU mode in settings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community">
+        <div class="container">
+            <h2 class="section-title">Community & Support</h2>
+            <div class="community-content">
+                <div class="community-intro">
+                    <p>vm-curator is a passion project built to bring modern desktop virtualization to Linux. Contributions welcome from anyone who shares the vision.</p>
+                </div>
+                
+                <div class="community-grid">
+                    <div class="community-card">
+                        <h3>Connect & Contribute</h3>
+                        <div class="community-links">
+                            <a href="https://github.com/mroboff/vm-curator" target="_blank" rel="noopener" class="community-link">
+                                <span class="link-icon">📦</span>
+                                <div>
+                                    <strong>GitHub Repository</strong>
+                                    <p>Source code, issues, discussions</p>
+                                </div>
+                            </a>
+                            <a href="https://github.com/mroboff/vm-curator/discussions" target="_blank" rel="noopener" class="community-link">
+                                <span class="link-icon">💬</span>
+                                <div>
+                                    <strong>Discussions</strong>
+                                    <p>Questions, tips, show off your setup</p>
+                                </div>
+                            </a>
+                            <a href="https://github.com/mroboff/vm-curator/issues" target="_blank" rel="noopener" class="community-link">
+                                <span class="link-icon">🐛</span>
+                                <div>
+                                    <strong>Issues & Features</strong>
+                                    <p>Bug reports, feature requests</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="community-card">
+                        <h3>Help Wanted</h3>
+                        <ul class="help-list">
+                            <li><strong>GPU Testing:</strong> Different hardware configurations</li>
+                            <li><strong>OS Profiles:</strong> More distributions and versions</li>
+                            <li><strong>Documentation:</strong> Usage guides and tutorials</li>
+                            <li><strong>Package Maintenance:</strong> Distribution-specific packages</li>
+                            <li><strong>ASCII Art:</strong> Cool terminal banners and OS logos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="community-card">
+                        <h3>Show Appreciation</h3>
+                        <p>If vm-curator improved your virtualization workflow or got your gaming VM working:</p>
+                        <div class="appreciation-links">
+                            <a href="https://github.com/mroboff/vm-curator" target="_blank" rel="noopener" class="appreciation-link">⭐ Star on GitHub</a>
+                            <a href="https://github.com/sponsors/mroboff" target="_blank" rel="noopener" class="appreciation-link">💝 GitHub Sponsors</a>
+                            <a href="https://ko-fi.com/mroboff" target="_blank" rel="noopener" class="appreciation-link">☕ Buy a Coffee</a>
+                        </div>
+                        <p class="appreciation-note">Donations support existing work, not future feature guarantees.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="brand-text">vm-curator</div>
+                        <p>The desktop VM manager built right</p>
+                    </div>
+                    <div class="footer-links">
+                        <div class="footer-section">
+                            <h4>Project</h4>
+                            <a href="https://github.com/mroboff/vm-curator" target="_blank" rel="noopener">GitHub</a>
+                            <a href="https://github.com/mroboff/vm-curator/releases" target="_blank" rel="noopener">Releases</a>
+                            <a href="https://github.com/mroboff/vm-curator/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Community</h4>
+                            <a href="https://github.com/mroboff/vm-curator/discussions" target="_blank" rel="noopener">Discussions</a>
+                            <a href="https://github.com/mroboff/vm-curator/issues" target="_blank" rel="noopener">Issues</a>
+                            <a href="https://github.com/mroboff" target="_blank" rel="noopener">Author</a>
+                        </div>
+                        <div class="footer-section">
+                            <h4>Support</h4>
+                            <a href="https://github.com/sponsors/mroboff" target="_blank" rel="noopener">Sponsors</a>
+                            <a href="https://ko-fi.com/mroboff" target="_blank" rel="noopener">Ko-fi</a>
+                            <a href="https://github.com/mroboff/vm-curator/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Mark Roboff. Built with frustration and caffeine.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

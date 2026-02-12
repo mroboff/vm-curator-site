@@ -516,6 +516,62 @@ pre {
     font-style: italic;
 }
 
+/* Virgl Card */
+.gpu-virgl {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: rgba(88, 166, 255, 0.05);
+    border: 1px solid rgba(88, 166, 255, 0.15);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.gpu-virgl-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.gpu-virgl-content h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.3rem;
+    color: #f0f6fc;
+    margin-bottom: 0.75rem;
+}
+
+.gpu-virgl-content p {
+    color: #8b949e;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+}
+
+.gpu-virgl-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1rem 0;
+}
+
+.gpu-virgl-features .gpu-feature {
+    font-size: 0.9rem;
+}
+
+.gpu-virgl-note {
+    font-size: 0.85rem;
+    color: #6e7681;
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+    .gpu-virgl {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+}
+
 /* Features Section */
 .features {
     padding: 6rem 0;
